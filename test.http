@@ -1,0 +1,60 @@
+@host = http://localhost:3000
+
+### 1. Проверка базового маршрута (GET /)
+GET {{host}}/
+
+### 2. Информация о приложении (GET /api/info)
+GET {{host}}/api/info
+
+### 3. Тестовый POST-запрос (POST /api/test)
+POST {{host}}/api/test
+Content-Type: application/json
+
+{
+  "name": "Ноутбук",
+  "price": 2500
+}
+
+### 4. Проверка подключения к БД (GET /api/db-test)
+GET {{host}}/api/db-test
+
+### =========================================
+### CRUD ОПЕРАЦИИ С КНИГАМИ (БЛОК 4)
+### =========================================
+
+### 5. Получить все книги (GET /api/books)
+GET {{host}}/api/books
+
+### 6. Создать новую книгу (POST /api/books)
+POST {{host}}/api/books
+Content-Type: application/json
+
+{
+  "title": "Гарри Поттер и Тайная комната",
+  "author": "Дж. К. Роулинг",
+  "year": 1998,
+  "isAvailable": true
+}
+
+### 7. Получить книгу по ID (GET /api/books/11)
+GET {{host}}/api/books/11
+
+### 8. Изменить книгу (PUT /api/books/11)
+PUT {{host}}/api/books/11
+Content-Type: application/json
+
+{
+  "title": "Гарри Поттер и Тайная комната (издание 2)",
+  "author": "Дж. К. Роулинг",
+  "year": 1998,
+  "isAvailable": false
+}
+
+### 9. Поиск книг по названию (GET /api/books/search)
+GET {{host}}/api/books/search?name=Гарри
+
+### 10. Удалить книгу (DELETE /api/books/11)
+DELETE {{host}}/api/books/11
+
+### 11. Проверка неизвестного маршрута (404)
+GET {{host}}/test
